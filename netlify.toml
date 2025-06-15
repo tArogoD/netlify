@@ -1,5 +1,5 @@
 [[redirects]]
   from = "/*"
-  to = "https://cloudflare.com/:splat"
+  to = "https://time.is/:splat"
   status = 200
   force = true
