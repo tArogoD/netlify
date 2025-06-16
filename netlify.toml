@@ -1,5 +1,23 @@
+[build]
+  functions = "functions"
+
 [[redirects]]
-  from = "/*"
-  to = "https://www.cloudflare.com/:splat"
+  from = "/api/*"
+  to = "https://cloudflare.com/api/:splat"
   status = 200
   force = true
+  headers = {X-Forwarded-Host = "cloudflare.com"}
+
+[[redirects]]
+  from = "/*"
+  to = "https://cloudflare.com/:splat"
+  status = 200
+  force = true
+  headers = {X-Forwarded-Host = "cloudflare.com"}
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Cache-Control = "public, max-age=3600"
